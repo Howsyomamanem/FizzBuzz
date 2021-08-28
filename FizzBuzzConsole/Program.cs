@@ -25,12 +25,16 @@ namespace FizzBuzzConsole
 				Terminate(1);
 			}
 
-			Console.WriteLine("Done.");
 			Terminate(0);
 		}
 
 		static void Run(Arguments arguments)
 		{
+			Console.WriteLine("Running with the following arguments...");
+			Console.WriteLine($"\tRange: {arguments.Start.ToString("N0")} - {arguments.Max.ToString("N0")}");
+			Console.WriteLine($"\tFizz: {arguments.Fizz.ToString("N0")} Buzz: {arguments.Buzz.ToString("N0")}");
+			Console.WriteLine();
+
 			FizzBuzzEnumerable fb = new FizzBuzzEnumerable(arguments);
 
 			foreach (FizzBuzzNumber fbn in fb)
@@ -38,6 +42,7 @@ namespace FizzBuzzConsole
 				Console.WriteLine($"{fbn.ToString()}");
 			}
 
+			Console.WriteLine("Done.");
 		}
 
 		private static void Terminate(int exitCode = 0)
